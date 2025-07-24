@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(auto()) @map("_id") @test.ObjectId
+  email      String   @unique
+  name       String
+  avatarUrl  String?
+  language   String   @default("en")
+  isPremium  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  readings   Reading[]
+  sessions   Session[]
+}
+
+model Session {
+  id         String   @id @default(auto()) @map("_id") @test.ObjectId
+  userId     String
+  title      String?
+  startedAt  DateTime @default(now())
+  endedAt    DateTime?
+
+  readings   Reading[]
+}
+
+model Reading {
+  id             String   @id @default(auto()) @map("_id") @test.ObjectId
+  userId         String
+  sessionId      String
+  type           String
+  question       String
+  cards          String[]
+  interpretation String
+  followUpTo     String?
+  createdAt      DateTime @default(now())
+}
