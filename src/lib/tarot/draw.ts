@@ -1,21 +1,7 @@
 import { tarotDeck } from './cards';
+import { DrawnCard, TarotReading } from '@/utils/types';
 
-export interface DrawnCard {
-  id: string;
-  name: string;
-  arcana: string;
-  suit?: string;
-  image: string;
-  keywords: string[];
-  reversedKeywords: string[];
-  isReversed: boolean;
-}
 
-export interface TarotReading {
-  cards: DrawnCard[];
-  spread: string;
-  timestamp: Date;
-}
 
 export class TarotDraw {
   private shuffledDeck: typeof tarotDeck;
