@@ -4,9 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    serverActions: true,
-  },
+  
   env: {
     GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   }
