@@ -1,5 +1,5 @@
 import { tarotDeck } from './cards';
-import { DrawnCard, TarotReading } from '@/utils/types';
+import { DrawnCard, TarotReading } from '@utils/types';
 
 
 
