@@ -23,3 +23,12 @@ export const threeCardPrompt = (
 *   **Future:** ${cards[2].name} (${cards[2].isReversed ? 'reversed' : 'upright'}) - Keywords: ${cards[2].keywords.join(', ')} / ${cards[2].reversedKeywords.join(', ')}
 
 Weave these cards into a cohesive narrative that tells the story of the user's journey. Explain how the past has shaped the present, and how the present may influence the future. Provide guidance and advice based on the cards' collective wisdom.`;
+
+export const continuationPrompt = (
+  previousReading: { question: string; cards: { name: string; isReversed: boolean }[]; interpretation: string },
+  newMessage: string
+) => `You are a wise tarot reader continuing a conversation. The user previously asked: "${previousReading.question}" and drew these cards: ${previousReading.cards.map(c => `${c.name} (${c.isReversed ? 'reversed' : 'upright'})`).join(', ')}. Your previous interpretation was: "${previousReading.interpretation}"
+
+The user is now saying: "${newMessage}"
+
+Provide insightful guidance that builds upon the previous reading or addresses their new question with mystical wisdom. Maintain your oracle-like persona.`;
