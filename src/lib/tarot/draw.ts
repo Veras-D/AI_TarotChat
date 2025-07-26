@@ -4,6 +4,9 @@ import { DrawnCard, TarotReading } from '@utils/types';
 
 
 export class TarotDraw {
+  tarotDrawer(): DrawnCard {
+      throw new Error('Method not implemented.');
+  }
   private shuffledDeck: typeof tarotDeck;
 
   constructor() {
