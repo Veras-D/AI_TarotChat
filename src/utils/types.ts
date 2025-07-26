@@ -23,5 +23,18 @@ export interface Message {
   type: 'user' | 'ai' | 'cards';
   content: string;
   timestamp: Date;
-  cards?: DrawnCard[]; // Optional for 'cards' type messages
+  cards?: DrawnCard[];
 }
+
+export type ReadingType =
+  | 'single-card'
+  | 'daily-card'
+  | 'advice'
+  | 'simple-question'
+  | 'yes-no'
+  | 'two-card'
+  | 'positive-negative'
+  | 'three-card'
+  | 'weekly-cards'
+  | 'past-present-future'
+  | 'love-relationship';
