@@ -310,13 +310,13 @@
     );
   }
 
-  .bg-card-color-gradient {
+/*  .bg-card-color-gradient {
     background-image: linear-gradient(
       to bottom right,
       hsla(var(--primary) / 0.1),
       hsla(var(--accent) / 0.1)
     );
-  }
+  }*/
 
   .card-reveal {
     animation: reveal 0.8s ease-out forwards;
