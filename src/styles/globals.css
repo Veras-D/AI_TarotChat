@@ -8,24 +8,32 @@
     --foreground-active: #E7B008;
 
     --card: 248 39% 8%;
+    --card-transparent: 248, 39%, 8%, 0.5;
+    --card-80-opacity: 248, 39%, 8%, 0.8;
     --card-foreground: 46 87% 65%;
 
     --popover: 248 39% 8%;
     --popover-foreground: 46 87% 65%;
 
     --primary: 262 83% 58%;
+    --primary-hover: 262, 83%, 58%, 0.9;
     --primary-foreground: 248 39% 6%;
 
     --secondary: 248 25% 18%;
+    --secondary-hover: 248, 25%, 18%, 0.8;
     --secondary-foreground: 46 87% 65%;
 
     --muted: 248 25% 12%;
     --muted-foreground: 248 12% 58%;
 
     --accent: 45 93% 47%;
+    --accent-hover: 45, 93%, 47%, 0.9;
+    --accent-30-opacity: 45, 93%, 47%, 0.3;
+    --accent-50-opacity: 45, 93%, 47%, 0.5;
     --accent-foreground: 248 39% 6%;
 
     --destructive: 0 75% 60%;
+    --destructive-hover: 0, 75%, 60%, 0.9;
     --destructive-foreground: 46 87% 65%;
 
     --border: 248 25% 18%;
@@ -68,6 +76,14 @@
     color: hsl(var(--accent));
   }
 
+  .text-accent-70 {
+    color: hsl(var(--accent) / 0.7);
+  }
+
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
   .text-card-foreground {
     color: hsl(var(--card-foreground));
   }
@@ -78,8 +94,19 @@
     color: hsl(var(--muted-foreground));
   }
 
-  .text-foreground {
-    color: hsl(var(--foreground));
+  .text-destructive-foreground {
+    color: hsl(var(--destructive-foreground));
+  }
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+
+  .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground));
   }
 
   .bg-input {
@@ -102,17 +129,45 @@
     background-color: hsl(var(--card));
   }
 
+  .bg-card-50 {
+    background-color: hsla(var(--card-transparent));
+  }
+
+  .bg-destructive {
+    background-color: hsl(var(--destructive));
+  }
+
+  .bg-primary {
+      background-color: hsl(var(--primary));
+  }
+
+  .bg-secondary {
+      background-color: hsl(var(--secondary));
+  }
+
   .border-border {
     --tw-ring-color: hsl(var(--primary));
     --tw-ring-offset-width: 0px;
   }
 
-  .ring-offset-background {
-    --tw-ring-offset-color: hsl(var(--background));
-  }
-
   .border-input {
     border-color: hsl(var(--input));
+  }
+
+  .border-accent {
+    border-color: hsl(var(--accent));
+  }
+
+  .border-accent-30 {
+    border-color: hsla(var(--accent-30-opacity));
+  }
+
+  .border-accent-50 {
+    border-color: hsla(var(--accent-50-opacity));
+  }
+
+  .ring-offset-background {
+    --tw-ring-offset-color: hsl(var(--background));
   }
 
   .ring-ring {
@@ -130,14 +185,26 @@
   .focus_text-accent-foreground:focus {
     color: hsl(var(--accent-foreground));
   }
-}
 
-.bg-primary {
-    background-color: hsl(var(--primary));
-}
+  .hover-bg-primary-90:hover {
+      background-color: hsla(var(--primary-hover));
+  }
 
-.text-primary-foreground {
-    color: hsl(var(--primary-foreground));
+  .hover-bg-destructive-90:hover {
+      background-color: hsla(var(--destructive-hover));
+  }
+
+  .hover-bg-secondary-80:hover {
+      background-color: hsla(var(--secondary-hover));
+  }
+
+  .hover-bg-accent:hover {
+      background-color: hsla(var(--accent));
+  }
+
+  .hover-text-accent-foreground:hover {
+    color: hsl(var(--accent-foreground));
+  }
 }
 
 @layer components {
@@ -207,6 +274,48 @@
   .mystical-glow-hover-only:hover {
     transition: var(--transition-mystical);
     box-shadow: 0 0 40px hsl(262 83% 58% / 0.5);
+  }
+
+  .mystical {
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    color: hsl(var(--primary-foreground));
+    transition: background 0.3s ease;
+  }
+
+  .mystical:hover {
+    background-image: linear-gradient(
+      to right,
+      hsla(var(--primary-hover)),
+      hsla(var(--accent-hover))
+    );
+  }
+
+  .gradient-reader {
+    background-image: linear-gradient(to bottom right, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .card-gradient {
+    background-image: linear-gradient(
+      to bottom right,
+      hsl(var(--card)),
+      hsla(var(--card-80-opacity))
+    );
+  }
+
+  .bg-card-gradient {
+    background-image: linear-gradient(
+      to bottom right,
+      hsla(var(--muted) / 0.5),
+      hsl(var(--muted))
+    );
+  }
+
+  .bg-card-color-gradient {
+    background-image: linear-gradient(
+      to bottom right,
+      hsla(var(--primary) / 0.1),
+      hsla(var(--accent) / 0.1)
+    );
   }
 
   .card-reveal {
